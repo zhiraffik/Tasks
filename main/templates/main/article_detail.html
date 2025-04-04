@@ -1,0 +1,42 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <article class="card border-0 shadow-sm">
+        <div class="card-body">
+            <!-- Заголовок с иконкой -->
+            <h1 class="card-title display-5 mb-4">
+                <i class="bi bi-bookmark-check"></i>
+                {{ card.title }}
+            </h1>
+            
+            <!-- Контент карточки -->
+            <div class="card-text fs-5 mb-4">
+                {{ card.description|linebreaks }}
+            </div>
+            
+            <!-- Дополнительная информация -->
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- Дата публикации -->
+                <small class="text-muted">
+                    <i class="bi bi-calendar-event"></i>
+                    Опубликовано: {{ card.date|date:"d.m.Y" }}
+                </small>
+                
+                <!-- Кнопка "Назад" -->
+                <a href="{% url 'index' %}" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Вернуться к списку
+                </a>
+            </div>
+        </div>
+    </article>
+    
+    <!-- Блок комментариев (добавьте позже) -->
+    <section class="mt-5">
+        <h4><i class="bi bi-chat-left-text"></i> Комментарии</h4>
+        <div class="alert alert-info">
+            Система комментариев будет добавлена в ближайшее время
+        </div>
+    </section>
+</div>
+{% endblock %}
